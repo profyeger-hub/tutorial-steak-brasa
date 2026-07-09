@@ -216,7 +216,7 @@ a {
         linear-gradient(105deg,
             rgba(11, 10, 10, 0.8) 40%,
             rgba(11, 10, 10, 0.2) 70%),
-        url("../img/full-steak-hero.webp");
+        url("./img/full-steak-hero.webp");
     background-size: cover;
     background-position: center;
 }
@@ -601,7 +601,7 @@ a {
         linear-gradient(105deg,
             rgba(11, 10, 10, 0.8) 40%,
             rgba(11, 10, 10, 0.2) 70%),
-        url("../img/full-steak-hero-lp.webp");
+        url("./img/full-steak-hero-lp.webp");
 }
 
 .hero-eyebrow {
@@ -745,7 +745,7 @@ a {
     inset: 0;
     background:
         linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("/img/full-steak-hero.webp") center / cover;
+        url("./img/full-steak-hero.webp") center / cover;
     z-index: 0;
 }
 
