@@ -1,0 +1,825 @@
+/* ================================================
+   FULL-STEAK BRASA — Cardápio (Dia 1)
+   ================================================ */
+
+
+/* 1. FONTE ---------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* 2. VARIÁVEIS — o "coração" da identidade visual -- */
+:root {
+    --bg-01: #111111;
+    --bg-card: #1E1E1E;
+
+    --text-01: #F8F1E8;
+    --text-02: #B8B0A6;
+
+    --accent-red: #E63928;
+    --accent-orange: #FF6B35;
+
+    --border-soft: #2E2E2E;
+    --whatsapp: #25D366;
+
+    --font-heading: 'Bebas Neue', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --radius-sm: 4px;
+    --radius-md: 10px;
+
+    --transition: 0.25s ease;
+}
+
+
+/* 3. RESET ---------------------------------------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-01);
+    color: var(--text-01);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* 4. UTILITÁRIOS ---------------------------------- */
+.divider {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-red), var(--accent-orange));
+    border-radius: 2px;
+    margin: 12px 0 20px;
+}
+
+.fire {
+    color: var(--accent-orange);
+}
+
+.secao-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 6px;
+}
+
+
+/* 5. BOTÕES --------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--accent-orange);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #f04434;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 57, 40, 0.38);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-01);
+    border: 1.5px solid var(--border-soft);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+.btn-header {
+    padding: 10px 22px;
+    font-size: 0.78rem;
+}
+
+.btn-whatsapp {
+    background: var(--accent-orange);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 12px 16px;
+    width: 100%;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* Ícone do Boxicons dentro do botão */
+.btn-whatsapp i {
+    font-size: 1.2rem;
+}
+
+
+/* 6. HEADER --------------------------------------- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 64px;
+    background: rgba(17, 17, 17, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.header-inner {
+    height: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-name {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    letter-spacing: 0.04em;
+    color: var(--text-01);
+}
+
+.logo-sub {
+    font-size: 0.56rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-02);
+    margin-top: 2px;
+}
+
+
+/* 7. HERO ----------------------------------------- */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(105deg,
+            rgba(11, 10, 10, 0.8) 40%,
+            rgba(11, 10, 10, 0.2) 70%),
+        url("../img/full-steak-hero.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 96px 24px 56px;
+    padding-left: max(24px, calc((100vw - 1320px) / 2 + 24px));
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    color: var(--text-01);
+    margin-bottom: 14px;
+}
+
+.hero-title .fire {
+    color: var(--accent-red);
+}
+
+.hero-tagline {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.06em;
+    color: var(--accent-orange);
+    margin-bottom: 12px;
+}
+
+.hero-desc {
+    font-size: 0.9rem;
+    color: var(--text-02);
+    line-height: 1.65;
+    max-width: 360px;
+    margin-bottom: 28px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Animação de entrada suave */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    animation: fadeUp 0.5s ease 0.10s both;
+}
+
+.hero-tagline {
+    animation: fadeUp 0.5s ease 0.20s both;
+}
+
+.hero-desc {
+    animation: fadeUp 0.5s ease 0.30s both;
+}
+
+.hero-actions {
+    animation: fadeUp 0.5s ease 0.40s both;
+}
+
+
+/* 8. SEÇÃO DE PRODUTOS ---------------------------- */
+.secao-produtos {
+    padding: 72px 24px 100px;
+}
+
+.secao-titulo {
+    max-width: 1320px;
+    margin: 0 auto 52px;
+}
+
+.secao-titulo h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: 0.05em;
+    color: var(--text-01);
+    line-height: 1;
+}
+
+.secao-titulo p {
+    font-size: 0.875rem;
+    color: var(--text-02);
+    margin-top: 6px;
+}
+
+.produtos-grid {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+/* 9. CARD DE PRODUTO ------------------------------ */
+.produto-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    filter: brightness(0.88) saturate(1.1);
+    transition: filter var(--transition), transform var(--transition);
+}
+
+.produto-card:hover .card-img {
+    filter: brightness(1) saturate(1.2);
+    transform: scale(1.04);
+}
+
+.card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--accent-red);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.card-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-nome {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    color: var(--text-01);
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.card-desc {
+    font-size: 0.84rem;
+    color: var(--text-02);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.card-rodape {
+    margin-bottom: 14px;
+}
+
+.card-preco {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+
+/* 10. FOOTER -------------------------------------- */
+.site-footer {
+    background: #0D0D0D;
+    border-top: 1px solid var(--border-soft);
+    padding: 52px 24px 28px;
+}
+
+.footer-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.footer-topo {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 48px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 22px;
+}
+
+.footer-brand .logo-name {
+    font-size: 1.9rem;
+}
+
+.footer-brand p {
+    font-size: 0.875rem;
+    color: var(--text-02);
+    margin-top: 12px;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+.footer-col h4 {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 16px;
+}
+
+.footer-col address {
+    font-style: normal;
+    font-size: 0.875rem;
+    color: var(--text-02);
+    line-height: 1.9;
+}
+
+.footer-col address strong {
+    display: block;
+    color: var(--text-01);
+    font-weight: 600;
+    margin-bottom: 1px;
+}
+
+.footer-wpp-link {
+    color: var(--whatsapp);
+    font-weight: 600;
+}
+
+.footer-fundo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    text-align: center;
+}
+
+.footer-fundo p {
+    font-size: 0.8rem;
+    color: var(--text-02);
+    opacity: 0.6;
+}
+
+
+/* 11. BOTÃO FLUTUANTE WHATSAPP -------------------- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    transition: transform var(--transition);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+
+/* 12. RESPONSIVIDADE ------------------------------ */
+@media (max-width: 1024px) {
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .footer-topo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .produtos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hero-content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .footer-topo {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .whatsapp-float {
+        bottom: 18px;
+        right: 18px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+
+/* ================================================================
+   FULL-STEAK BRASA — LANDING PAGE (Dia 2)
+================================================================ */
+
+
+/* Variável extra p/ ícones sociais + fundo alternado */
+:root {
+    --bg-02: #1A1A1A;
+    --text-03: #86817B;
+}
+
+
+/* HEADER com navegação (o resto vem de .site-header) */
+.lp-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.lp-nav a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-02);
+    transition: color var(--transition);
+}
+
+.lp-nav a:hover {
+    color: var(--text-01);
+}
+
+
+/* HERO */
+.lp-hero {
+    background-image:
+        linear-gradient(105deg,
+            rgba(11, 10, 10, 0.8) 40%,
+            rgba(11, 10, 10, 0.2) 70%),
+        url("../img/full-steak-hero-lp.webp");
+}
+
+.hero-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 16px;
+    animation: fadeUp 0.5s ease 0.05s both;
+}
+
+
+/* Faixa de seção clara (experiência e mais pedidos) */
+.faixa {
+    padding: 96px 24px;
+    background: var(--bg-02);
+    border-top: 1px solid var(--border-soft);
+}
+
+.faixa-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+
+/* EXPERIÊNCIA: texto + imagem lado a lado */
+.exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+}
+
+.exp-grid p {
+    color: var(--text-02);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    max-width: 480px;
+}
+
+.exp-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+    filter: brightness(0.9) saturate(1.15);
+}
+
+/* Números rápidos */
+.stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+.stat-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-02);
+}
+
+
+/* Grid genérico de 4 colunas (diferenciais e mais pedidos) */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+
+/* DIFERENCIAIS: cartões de texto */
+.card-simples {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 32px 24px;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.card-simples:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-4px);
+}
+
+.card-simples h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--accent-orange);
+    margin-bottom: 8px;
+}
+
+.card-simples p {
+    color: var(--text-02);
+    line-height: 1.65;
+}
+
+
+/* Centraliza cabeçalho de seção quando preciso */
+.centro {
+    text-align: center;
+}
+
+.centro .divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-link {
+    text-align: center;
+    margin-top: 48px;
+}
+
+
+/* CTA FINAL: fundo com imagem escurecida */
+.cta-final {
+    position: relative;
+    padding: 120px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border-soft);
+    overflow: hidden;
+}
+
+.cta-final::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/img/full-steak-hero.webp") center / cover;
+    z-index: 0;
+}
+
+.cta-final .secao-titulo,
+.cta-final-actions {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-final-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* Ajuste do botão do WhatsApp no CTA */
+.cta-final-actions .btn-whatsapp {
+    width: auto;
+    background-color: var(--whatsapp);
+}
+
+
+/* Ícones sociais do rodapé */
+.footer-brand i {
+    font-size: 2rem;
+    color: var(--text-03);
+    border: 2px solid var(--text-03);
+    border-radius: 50%;
+    padding: 2px;
+    margin: 1rem 0.6rem 0 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.footer-brand i:hover {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+
+/* RESPONSIVIDADE da LP */
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .exp-img {
+        order: -1;
+    }
+
+    .lp-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-final-actions {
+        flex-direction: column;
+    }
+
+    .cta-final-actions .btn {
+        width: 100%;
+    }
+}
